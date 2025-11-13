@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vasantham fibreglass Industries - Leading manufacturer of high-quality Fibreglass and composite products including FRP doors, dustbins, and park items.">
+    <meta name="keywords" content="fibreglass, FRP, composite materials, FRP doors, FRP dustbins, park furniture, industrial FRP">
+    <title>Vasantham Fibreglass Industries - Premium FRP Products</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="shortcut icon" href="logo.jpg">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- All CSS is copied from index.html -->
+    <style>
+        /* ===================================
+        DESIGN SYSTEM & CSS VARIABLES
+        =================================== */
+        :root {
+            /* Light Mode Colors */
+            --background: 0 0% 100%;
+            --foreground: 220 15% 20%;
+            --card: 0 0% 100%;
+            --card-foreground: 220 15% 20%;
+            
+            /* Navy Blue Primary */
+            --primary: 220 70% 25%;
+            --primary-foreground: 0 0% 100%;
+            
+            /* Charcoal Gray Secondary */
+            --secondary: 0 0% 25%;
+            --secondary-foreground: 0 0% 100%;
+            
+            --muted: 220 15% 95%;
+            --muted-foreground: 220 10% 45%;
+            
+            /* Bright Cyan Accent */
+            --accent: 190 90% 50%;
+            --accent-foreground: 220 70% 25%;
+            
+            /* Safety Orange Accent */
+            --orange: 25 100% 50%;
+            --orange-foreground: 0 0% 100%;
+            
+            --border: 220 15% 88%;
+            --input: 220 15% 88%;
+            --ring: 190 90% 50%;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, hsl(220 70% 25%) 0%, hsl(220 70% 35%) 100%);
+            --gradient-accent: linear-gradient(135deg, hsl(190 90% 50%) 0%, hsl(200 90% 60%) 100%);
+            --gradient-secondary: linear-gradient(135deg, hsl(0 0% 25%) 0%, hsl(0 0% 35%) 100%);
+            --gradient-hero: linear-gradient(135deg, hsl(220 70% 25%) 0%, hsl(0 0% 25%) 100%);
+            
+            /* Shadows */
+            --shadow-elegant: 0 10px 40px -10px hsl(220 70% 25% / 0.2);
+            --shadow-card: 0 4px 20px -2px hsl(220 15% 20% / 0.1);
+            --shadow-glow: 0 0 40px hsl(190 90% 50% / 0.3);
+            
+            --radius: 0.5rem;
+        }
+        
+        [data-theme="dark"] {
+            /* Dark Mode Colors */
+            --background: 220 15% 10%;
+            --foreground: 0 0% 95%;
+            --card: 220 15% 12%;
+            --card-foreground: 0 0% 95%;
+            
+            --primary: 220 70% 60%;
+            --primary-foreground: 220 15% 10%;
+            
+            --secondary: 0 0% 20%;
+            --secondary-foreground: 0 0% 95%;
+            
+            --muted: 220 15% 18%;
+            --muted-foreground: 220 10% 65%;
+            
+            --accent: 190 90% 55%;
+            --accent-foreground: 220 15% 10%;
+            
+            --orange: 25 100% 55%;
+            --orange-foreground: 220 15% 10%;
+            
+            --border: 220 15% 20%;
+            --input: 220 15% 20%;
+            --ring: 190 90% 55%;
+            
+            /* Dark mode gradients */
+            --gradient-primary: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(220 70% 40%) 100%);
+            --gradient-accent: linear-gradient(135deg, hsl(190 90% 55%) 0%, hsl(200 90% 65%) 100%);
+            --gradient-hero: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(0 0% 20%) 100%);
+            --gradient-secondary: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 30%) 100%);
+
+            /* Dark mode shadows */
+            --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+            --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+            --shadow-glow: 0 0 40px hsl(190 90% 55% / 0.4);
+        }
+        
+        /* ===================================
+        RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===================================
+        HEADER STYLES
+        =================================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: hsl(var(--background) / 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid hsl(var(--border));
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+        
+        .logo {
+            height: 2.5rem;
+            cursor: pointer;
+            /* Ensure logo is not squished on mobile */
+            flex-shrink: 0; 
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: hsl(var(--foreground));
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        nav a:hover, nav a.active {
+            color: hsl(var(--primary));
+            font-weight: 700;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* --- NEW: HAMBURGER BUTTON (More Specific) --- */
+        .header-actions .hamburger-btn {
+            display: none; /* Hidden on desktop */
+            z-index: 1001; /* Above the mobile menu */
+        }
+        
+        /* ===================================
+        BUTTON STYLES
+        =================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.5rem;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            box-shadow: var(--shadow-elegant);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .btn-cta {
+            background-color: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+            box-shadow: var(--shadow-glow);
+            font-weight: 600;
+        }
+        
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-elegant);
+        }
+        
+        .btn-outline {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: hsl(var(--primary));
+        }
+        
+        .btn-icon {
+            padding: 0.625rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background-color: hsl(var(--muted));
+        }
+        
+        /* ===================================
+        SECTION STYLES
+        =================================== */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+        
+        .section-header p {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* ===================================
+        CARD STYLES
+        =================================== */
+        .card {
+            background-color: hsl(var(--card));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-elegant);
+            transform: translateY(-8px);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: hsl(var(--card-foreground));
+        }
+        
+        .card-description {
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+        
+        .card-content {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .card-footer {
+            padding: 1.5rem;
+            border-top: 1px solid hsl(var(--border));
+        }
+        
+        /* THIS IS THE FIXED STYLE FOR PRODUCT IMAGES */
+        .card-image {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover; /* This makes the image cover the area nicely */
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .card-image {
+            transform: scale(1.1);
+        }
+        
+        /* This wrapper ensures the image area is consistent */
+        .card-image-wrapper {
+            overflow: hidden;
+            height: 16rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: hsl(var(--muted)); 
+        }
+
+        /* Styling for embedded SVG icons (no longer used for products) */
+        .card-icon {
+            width: 60%;
+            height: 60%;
+            max-width: 100px;
+            max-height: 100px;
+        }
+        
+        /* Helper classes */
+        .gradient-primary {
+            background: var(--gradient-primary);
+        }
+        
+        .gradient-accent {
+            background: var(--gradient-accent);
+        }
+        
+        .gradient-secondary {
+            background: var(--gradient-secondary);
+        }
+        
+        /* ===================================
+        GRID LAYOUTS
+        =================================== */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* ===================================
+        FOOTER STYLES
+        =================================== */
+        footer {
+            background-color: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        footer h3, footer h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        footer ul {
+            list-style: none;
+        }
+        
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: hsl(var(--secondary-foreground) / 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: hsl(var(--accent));
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid hsl(var(--border) / 0.3); 
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+
+        /* ===================================
+        ANIMATIONS
+        =================================== */
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 0.3s ease-out;
+        }
+        
+        /* ===================================
+        PRODUCT FILTERS
+        =================================== */
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background-color: hsl(var(--muted));
+            color: hsl(var(--foreground));
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background-color: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.75rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-family: inherit;
+            font-size: 0.875rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: hsl(var(--ring));
+            box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+        }
+        
+        /* ===================================
+        PRODUCT CARD SPECIFIC
+        =================================== */
+        .product-features {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .product-features li {
+            padding: 0.25rem 0;
+            font-size: 0.875rem;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        .product-features li::before {
+            content: "✓ ";
+            color: hsl(var(--accent));
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        /* ===================================
+        RESPONSIVE DESIGN (HAMBURGER MODIFICATIONS)
+        =================================== */
+        @media (max-width: 768px) {
+            
+            /* --- MODIFIED: Mobile Nav Styling --- */
+            nav {
+                /* Start hidden */
+                display: none; 
+                
+                /* Make it a vertical overlay menu */
+                position: absolute;
+                top: 4rem; /* Height of the header */
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                
+                /* Styling */
+                background-color: hsl(var(--card));
+                padding: 1rem;
+                border-bottom: 1px solid hsl(var(--border));
+                box-shadow: var(--shadow-card);
+                
+                /* Animation */
+                animation: scaleIn 0.2s ease-out; /* Using your existing scaleIn */
+            }
+
+            /* --- NEW: Active state for mobile nav --- */
+            nav.mobile-active {
+                display: flex; /* Show the menu */
+            }
+            
+            /* --- NEW: Mobile nav link styling --- */
+            nav.mobile-active a {
+                padding: 1rem;
+                border-radius: var(--radius);
+                font-size: 1rem;
+                font-weight: 600;
+            }
+            nav.mobile-active a:hover {
+                background-color: hsl(var(--muted));
+            }
+
+            /* --- NEW: Show Hamburger Button (More Specific) --- */
+            .header-actions .hamburger-btn {
+                display: inline-flex; /* Use inline-flex to match btn-icon */
+            }
+
+            /* --- NEW: Hide desktop quote button --- */
+            .header-actions .btn-cta {
+                display: none;
+            }
+
+            /* --- EXISTING RULES --- */
+            section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* ===================================
+        UTILITIES
+        =================================== */
+        .w-full {
+            width: 100%;
+        }
+        
+        /* Icon positioning for light/dark mode */
+        .theme-toggle {
+            position: relative;
+        }
+        
+        .sun-icon, .moon-icon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .sun-icon {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0);
+        }
+        
+        [data-theme="dark"] .moon-icon {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+        
+        [data-theme="light"] .sun-icon {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+        
+        [data-theme="light"] .moon-icon {
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+    </style>
+    <!-- ===================================
+    JAVASCRIPT FOR THIS PAGE
+    =================================== -->
+    <script>
+        // --- FIXED PRODUCT DATA ---
+        // This list now points to the images in your 'image' folder
+        const products = [
+            // FRP Doors
+            { id: 'door-1', name: 'Colonical', category: 'doors', description: 'Timeless Colonial Style, Zero Maintenance: The classic look of wood, the strength of FRP', features: ['Weather resistant', 'Low maintenance', 'Customizable design', 'Fire retardant'], image_url: 'colonical.jpg' },
+            { id: 'door-2', name: 'Arch (S)', category: 'doors', description: 'Heavy-duty FRP door designed for industrial applications', features: ['Extra strength', 'Corrosion resistant', 'Easy installation', 'Long lasting'], image_url: 'arch s.jpg' },
+            { id: 'door-3', name: 'Arch New Small', category: 'doors', description: 'Combining the best materials with superior construction techniques for maximum life.', features: ['Aesthetic design', 'Lightweight', 'Moisture proof', 'Various colors'], image_url: 'arch new small.jpg'},
+            { id: 'door-4', name: 'Glass Door', category: 'doors', description: 'Maximizing daylight and visual appeal with tempered glass secured by our superior FRP structure', features: ['Max Light', 'Safety Glass', 'Sealed Tight', 'Clarity'], image_url: 'glass door.png'},
+            { id: 'door-5', name: 'Arch Big', category: 'doors', description: 'Built to exceed commercial and residential structural benchmarks for lifelong reliability', features: ['Professional finish', 'Easy maintenance', 'Durable', 'Cost effective'], image_url: 'arch big.jpg'},
+            { id: 'door-6', name: 'Arch New Big', category: 'doors', description: 'Setting the new industries benchmark for door quality, performance, and lifetime structural integrity', features: ['Custom sizing', 'Design flexibility', 'Color options', 'Special finishes'], image_url: 'arch new big.jpg'},
+            
+            // FRP Dustbins
+            { id: 'dustbin-1', name: 'Rabbit', category: 'dustbins', description: 'Durable FRP dustbin shaped like a rabbit for street and public areas', features: ['Height: 41 in', 'Capacity: 50 Litres', 'Easy to clean', 'Weather resistant'], image_url: 'rabbit 1.jpg' },
+            { id: 'dustbin-2', name: 'Penguin', category: 'dustbins', description: 'Aesthetic FRP dustbin designed like a penguin, perfect for parks and children areas', features: ['Height: 48 in', 'Capacity: 60 Litres', 'Weather resistant', 'Low maintenance'], image_url: 'penguin 1.jpg' },
+            { id: 'dustbin-3', name: 'Tree-Trunk', category: 'dustbins', description: 'Heavy-duty FRP dustbin disguised as a tree trunk for industrial use and natural settings', features: ['Height: 26 in', 'Capacity: 50 Litres', 'Attractive design', 'Easy handling'], image_url: 'tree trunk.jpg' },
+            { id: 'dustbin-4', name: 'Monkey', category: 'dustbins', description: 'Large capacity dustbins shaped like a monkey, perfect for public areas and zoos', features: ['Height: 52 in', 'Capacity: 85 Litres', 'Color coded', 'Space efficient'], image_url: 'monkey 1.jpg' },
+            { id: 'dustbin-5', name: 'Fish', category: 'dustbins', description: 'Stylish FRP dustbin with a modern fish design, suitable for coastal areas or resorts', features: ['Height: 38 in', 'Capacity: 25 Litres', 'Durable finish', 'Customizable colors'], image_url: 'fish 1.jpg' },
+            { id: 'dustbin-6', name: 'Donald Duck', category: 'dustbins', description: 'Aesthetic FRP dustbin in the shape of a famous character, perfect for theme parks', features: ['Height: 38 in', 'Capacity: 50 Litres', 'Easy to clean', 'Weather resistant'], image_url: 'donald duck 1.jpg' },
+            
+            // FRP Park Items
+            { id: 'park-1', name: 'See-Saw', category: 'park-items', description: 'FRP Seats: Moulded with Safety Contours for Child Comfort on a sturdy see-saw', features: ['Temperature Neutral', 'Child Safety', 'Vibrant Colors', 'Low maintenance'], image_url: 'see saw.jpg' },
+            { id: 'park-2', name: 'Double Swing', category: 'park-items', description: 'FRP Swing Seats: Flexible and Highly Impact-R esistant for Active Fun for two children', features: ['Flexible Safety', 'Abrasion Proof', 'Lightweight', 'Vandal Resistant'], image_url: 'swing.jpg' },
+            { id: 'park-3', name: 'Merry Go Round', category: 'park-items', description: 'FRP Seating: UV-Stabilized for Vibrant, Color-Fast Durability in this classic playground item', features: ['Impact Strength', 'Weatherproof', 'Fade Resistance', 'Smooth Finish'], image_url: 'marry go round.jpg' },
+            { id: 'park-4', name: 'Park Bench', category: 'park-items', description: 'FRP Surface: Hygienic, Non-Porous, and Stain-Resistant Seating for public parks and gardens', features: ['Zero Maintenance', 'Graffiti Resistant', 'No Rust/Rot', 'Ergonomic Moulding'], image_url: 'park bench.jpg' },
+            { id: 'park-5', name: 'Circular Swing', category: 'park-items', description: 'FRP Seating: Robust, Contoured Seating for Comfortable Group Play in a circular swing setting', features: ['Permanent Color', 'Easy to Clean', 'Weatherproof', 'High Load Bearing'], image_url: 'circular swing.jpg' },
+            { id: 'park-6', name: 'Double Slide', category: 'park-items', description: 'FRP Slide Surface: High-Gloss Finish for Fast, Safe Sliding Action on a double-lane slide', features: ['Anti-Static', 'Seamless Joint', 'Low Friction', 'UV Protection'], image_url: 'double slide.jpg' }
+        ];
+        
+        // --- PAGE STARTUP ---
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            
+            // Set 'Products' link in nav as active
+            const navLinks = document.querySelectorAll('#mainNav a');
+            navLinks.forEach(link => {
+                if (link.textContent.trim() === 'Products') {
+                    link.classList.add('active');
+                }
+            });
+
+            // Initial render of all products
+            renderProducts('all');
+
+            // --- NEW: HAMBURGER MENU SETUP ---
+            setupHamburgerMenu();
+        });
+        
+        // --- GLOBAL FUNCTIONS ---
+        
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // --- NEW: HAMBURGER TOGGLE FUNCTION ---
+        function setupHamburgerMenu() {
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const mainNav = document.getElementById('mainNav');
+
+            if (!hamburgerBtn || !mainNav || !hamburgerIcon) {
+                console.error('Hamburger menu elements not found!');
+                return;
+            }
+
+            // 1. Toggle menu on button click
+            hamburgerBtn.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('mobile-active');
+                
+                // Change icon
+                if (isActive) {
+                    hamburgerIcon.setAttribute('data-lucide', 'x');
+                } else {
+                    hamburgerIcon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons(); // Redraw the new icon
+            });
+
+            // Note: We don't need the "close on click" listener
+            // because these are all standard href links that will 
+            // navigate to a new page or reload this one.
+        }
+        
+        // --- PRODUCT-SPECIFIC FUNCTIONS ---
+
+        // Render Products
+        function renderProducts(category) {
+            const grid = document.getElementById('productsGrid');
+            if (!grid) return;
+            
+            const searchTerm = document.getElementById('searchInput')?.value.toLowerCase() || '';
+
+            const filteredProducts = products.filter(p => {
+                const categoryMatch = category === 'all' || p.category === category;
+                const searchMatch = p.name.toLowerCase().includes(searchTerm) || p.description.toLowerCase().includes(searchTerm);
+                return categoryMatch && searchMatch;
+            });
+            
+            if (filteredProducts.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center; padding: 2rem; color: hsl(var(--muted-foreground));">No products found matching your criteria.</p>';
+                return;
+            }
+            
+            // --- FIXED IMAGE RENDERING ---
+            // This now uses 'card-image' class to make images large
+            // and the background color is removed from the wrapper.
+            grid.innerHTML = filteredProducts.map(product => `
+                <div class="card product-card animate-scale-in">
+                    <!-- Image Area -->
+                    <div class="card-image-wrapper">
+                        <img 
+                            class="card-image" 
+                            src="${product.image_url}" 
+                            alt="Product image for ${product.name}"
+                            onerror="this.src='https://placehold.co/600x400/eeeeee/999999?text=Image+Not+Found'; this.style.objectFit='contain';"
+                        >
+                    </div>
+                    <!-- End Image Area -->
+                    <div class="card-header">
+                        <h3 class="card-title">${product.name}</h3>
+                        <p class="card-description">${product.description}</p>
+                    </div>
+                    <div class="card-content">
+                        <ul class="product-features">
+                            ${product.features.map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Re-initialize icons (if any were added, good practice)
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        }
+        
+        // Filter Products (called by buttons)
+        function filterProducts(category, event) {
+            // Reset search input
+            document.getElementById('searchInput').value = '';
+
+            renderProducts(category);
+            
+            // Update filter buttons active state
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+        
+        // Search Products (called by input keyup)
+        function searchProducts() {
+            // Find the active filter category
+            const activeFilterButton = document.querySelector('.filter-btn.active');
+            let currentCategory = 'all';
+
+            if (activeFilterButton) {
+                const onClickAttribute = activeFilterButton.getAttribute('onclick');
+                const match = onClickAttribute.match(/filterProducts\('([^']+)'/);
+                if (match) {
+                    currentCategory = match[1];
+                }
+            }
+            
+            renderProducts(currentCategory);
+        }
+    </script>
+</head>
+<body data-theme="light">
+    
+    <!-- ===================================
+    HEADER (Links are updated)
+    =================================== -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html">
+                    <img src="logo.jpg" style="height:70px; width:auto; object-fit:contain; vertical-align:middle; padding:5px 0;" 
+                         alt="Vasantham Fibreglass Industries" 
+                         class="logo">
+                </a>
+                
+                <nav id="mainNav">
+                    <a href="index.html">Home</a>
+                    <a href="products.html" class="active">Products</a> <!-- Set as active -->
+                    <a href="index.html#applications">Applications</a>
+                    <a href="index.html#about">About Us</a>
+                    <a href="index.html#contact">Contact</a>
+                    <!-- NEW: Mobile-only "Request a Quote" button -->
+                    <a href="index.html#contact" class="btn btn-cta w-full" style="display: none;" id="mobile-quote-btn">
+                        Request a Quote
+                    </a>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="btn-icon theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                    <a href="index.html#contact" class="btn btn-cta">Request a Quote</a>
+                    
+                    <!-- NEW: HAMBURGER BUTTON -->
+                    <button class="btn-icon hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+                        <i data-lucide="menu" id="hamburger-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <!-- ===================================
+        PRODUCTS PAGE CONTENT
+        =================================== -->
+        <section style="padding-top: 3rem;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Products</h2>
+                    <p>Comprehensive range of high-quality FRP solutions</p>
+                </div>
+                
+                <div class="filter-bar">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Search products..." onkeyup="searchProducts()">
+                    <button class="filter-btn active" onclick="filterProducts('all', event)">All Products</button>
+                    <button class="filter-btn" onclick="filterProducts('doors', event)">FRP Doors</button>
+                    <button class="filter-btn" onclick="filterProducts('dustbins', event)">FRP Dustbins</button>
+                    <button class="filter-btn" onclick="filterProducts('park-items', event)">Park Items</button>
+                </div>
+                
+                <!-- This grid will be filled by JavaScript -->
+                <div id="productsGrid" class="grid grid-3">
+                    <!-- Loading placeholder... -->
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- ===================================
+    FOOTER (Links are updated)
+    =================================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Vasantham Fibreglass Industries</h3>
+                    <p style="font-size: 0.875rem; color: hsl(var(--muted-foreground)); margin-top: 0.5rem;">
+                        Leading manufacturer of high-quality fibreglass and composite products.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <!-- These buttons now work correctly on this page -->
+                        <li><a href="#" onclick="filterProducts('doors', event); return false;">FRP Doors</a></li>
+                        <li><a href="#" onclick="filterProducts('dustbins', event); return false;">FRP Dustbins</a></li>
+                        <li><a href="#" onclick="filterProducts('park-items', event); return false;">FRP Park Items</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact Info</h4>
+                    <ul style="list-style: none;">
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-lucide="phone" style="width: 1rem; height: 1rem; margin-top: 0.125rem;"></i>
+                            <span>+91 9894171858</span>
+                        </li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-lucide="mail" style="width: 1rem; height: 1rem; margin-top: 0.125rem;"></i>
+                            <span>vasanthamfiberglassindustries@gmail.com</span>
+                        </li>
+                        <li style="display: flex; gap: 0.5rem;">
+                            <i data-lucide="map-pin" style="width: 1rem; height: 1rem; margin-top: 0.125rem;"></i>
+                            <span>East Pondy Road, Kamban Nagar, Villupuram 605 602</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                &copy; <span id="year">2024</span> Vasantham Fibreglass Industries. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vasantham Fibre glass Industries- Leading manufacturer of high-quality fibreglass and composite products including FRP doors, dustbins, and park items.">
+    <meta name="keywords" content="fibreglass, FRP, composite materials, FRP doors, FRP dustbins, park furniture, industrial FRP">
+    <title>Vasantham Fibre glass Industries - Premium FRP Products</title>
+
+    <link rel="icon" type="image/png" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    <link rel="shortcut icon" href="logo.jpg">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* ===================================
+        DESIGN SYSTEM & CSS VARIABLES
+        =================================== */
+        :root {
+            /* Light Mode Colors */
+            --background: 0 0% 100%;
+            --foreground: 220 15% 20%;
+            --card: 0 0% 100%;
+            --card-foreground: 220 15% 20%;
+            
+            /* Navy Blue Primary */
+            --primary: 220 70% 25%;
+            --primary-foreground: 0 0% 100%;
+            
+            /* Charcoal Gray Secondary */
+            --secondary: 0 0% 25%;
+            --secondary-foreground: 0 0% 100%;
+            
+            --muted: 220 15% 95%;
+            --muted-foreground: 220 10% 45%;
+            
+            /* Bright Cyan Accent */
+            --accent: 190 90% 50%;
+            --accent-foreground: 220 70% 25%;
+            
+            /* Safety Orange Accent */
+            --orange: 25 100% 50%;
+            --orange-foreground: 0 0% 100%;
+            
+            --border: 220 15% 88%;
+            --input: 220 15% 88%;
+            --ring: 190 90% 50%;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, hsl(220 70% 25%) 0%, hsl(220 70% 35%) 100%);
+            --gradient-accent: linear-gradient(135deg, hsl(190 90% 50%) 0%, hsl(200 90% 60%) 100%);
+            --gradient-secondary: linear-gradient(135deg, hsl(0 0% 25%) 0%, hsl(0 0% 35%) 100%);
+            --gradient-hero: linear-gradient(135deg, hsl(220 70% 25%) 0%, hsl(0 0% 25%) 100%);
+            
+            /* Shadows */
+            --shadow-elegant: 0 10px 40px -10px hsl(220 70% 25% / 0.2);
+            --shadow-card: 0 4px 20px -2px hsl(220 15% 20% / 0.1);
+            --shadow-glow: 0 0 40px hsl(190 90% 50% / 0.3);
+            
+            --radius: 0.5rem;
+        }
+        
+        [data-theme="dark"] {
+            /* Dark Mode Colors */
+            --background: 220 15% 10%;
+            --foreground: 0 0% 95%;
+            --card: 220 15% 12%;
+            --card-foreground: 0 0% 95%;
+            
+            --primary: 220 70% 60%;
+            --primary-foreground: 220 15% 10%;
+            
+            --secondary: 0 0% 20%;
+            --secondary-foreground: 0 0% 95%;
+            
+            --muted: 220 15% 18%;
+            --muted-foreground: 220 10% 65%;
+            
+            --accent: 190 90% 55%;
+            --accent-foreground: 220 15% 10%;
+            
+            --orange: 25 100% 55%;
+            --orange-foreground: 220 15% 10%;
+            
+            --border: 220 15% 20%;
+            --input: 220 15% 20%;
+            --ring: 190 90% 55%;
+            
+            /* Dark mode gradients */
+            --gradient-primary: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(220 70% 40%) 100%);
+            --gradient-accent: linear-gradient(135deg, hsl(190 90% 55%) 0%, hsl(200 90% 65%) 100%);
+            --gradient-hero: linear-gradient(135deg, hsl(220 70% 30%) 0%, hsl(0 0% 20%) 100%);
+            --gradient-secondary: linear-gradient(135deg, hsl(0 0% 20%) 0%, hsl(0 0% 30%) 100%);
+
+            /* Dark mode shadows */
+            --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+            --shadow-card: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+            --shadow-glow: 0 0 40px hsl(190 90% 55% / 0.4);
+        }
+        
+        /* ===================================
+        RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===================================
+        HEADER STYLES
+        =================================== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: hsl(var(--background) / 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid hsl(var(--border));
+            transition: all 0.3s ease;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+        
+        .logo {
+            height: 2.5rem;
+            cursor: pointer;
+            /* Ensure logo is not squished on mobile */
+            flex-shrink: 0; 
+        }
+        
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: hsl(var(--foreground));
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        nav a:hover {
+            color: hsl(var(--primary));
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* --- NEW: HAMBURGER BUTTON (More Specific) --- */
+        .header-actions .hamburger-btn {
+            display: none; /* Hidden on desktop */
+            z-index: 1001; /* Above the mobile menu */
+        }
+        
+        /* ===================================
+        BUTTON STYLES
+        =================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.5rem;
+            border-radius: var(--radius);
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: hsl(var(--primary-foreground));
+            box-shadow: var(--shadow-elegant);
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .btn-cta {
+            background-color: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+            box-shadow: var(--shadow-glow);
+            font-weight: 600;
+        }
+        
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-elegant);
+        }
+        
+        .btn-outline {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: hsl(var(--primary));
+        }
+        
+        .btn-icon {
+            padding: 0.625rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background-color: hsl(var(--muted));
+        }
+        
+        /* ===================================
+        HERO SECTION
+        =================================== */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            /* Placeholder for Hero background */
+            background-image: url("data:image/svg+xml,%3Csvg%20width%3D%221920%22%20height%3D%22600%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Crect%20width%3D%221920%22%20height%3D%22600%22%20fill%3D%22%23203a5f%22/%3E%3Ctext%20x%3D%2260%22%20y%3D%2225%22%20font-family%3D%22Arial%22%20font-size%3D%2214%22%20font-weight%3D%22bold%22%20fill%3D%22white%22%20text-anchor%3D%22middle%22%3EVASANTHAM%3C/text%3E%3C/svg%3E");
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-hero);
+            opacity: 0.9;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.75rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* ===================================
+        SECTION STYLES
+        =================================== */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-bg {
+            background-color: hsl(var(--muted));
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: hsl(var(--foreground));
+        }
+        
+        .section-header p {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+        }
+        
+        /* ===================================
+        CARD STYLES
+        =================================== */
+        .card {
+            background-color: hsl(var(--card));
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-elegant);
+            transform: translateY(-8px);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: hsl(var(--card-foreground));
+        }
+        
+        .card-description {
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+        
+        .card-content {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .card-footer {
+            padding: 1.5rem;
+            border-top: 1px solid hsl(var(--border));
+        }
+        /* This style makes your product photos fill the box */
+        .card-image {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .card-image {
+            transform: scale(1.1);
+        }
+        
+        /* Styling for embedded SVG icons */
+        .card-image-wrapper {
+            overflow: hidden;
+            height: 16rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: hsl(var(--muted)); 
+        }
+
+        .card-icon {
+            width: 60%;
+            height: 60%;
+            max-width: 100px;
+            max-height: 100px;
+        }
+        
+        .gradient-primary {
+            background: var(--gradient-primary);
+        }
+        
+        .gradient-accent {
+            background: var(--gradient-accent);
+        }
+        
+        .gradient-secondary {
+            background: var(--gradient-secondary);
+        }
+        
+        /* ===================================
+        GRID LAYOUTS
+        =================================== */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        /* ===================================
+        FEATURES SECTION
+        =================================== */
+        .feature-card {
+            text-align: center;
+        }
+        
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            color: hsl(var(--accent));
+        }
+        
+        .feature-icon.orange {
+            color: hsl(var(--orange));
+        }
+        
+        /* ===================================
+        FORM STYLES
+        =================================== */
+        .contact-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid hsl(var(--border));
+            border-radius: var(--radius);
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-family: inherit;
+            font-size: 0.875rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: hsl(var(--ring));
+            box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* ===================================
+        FOOTER STYLES
+        =================================== */
+        footer {
+            background-color: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        footer h3, footer h4 {
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        footer ul {
+            list-style: none;
+        }
+        
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            color: hsl(var(--secondary-foreground) / 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: hsl(var(--accent));
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid hsl(var(--border) / 0.3); 
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+        
+        /* ===================================
+        PAGE NAVIGATION (SPA)
+        =================================== */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* ===================================
+        ANIMATIONS
+        =================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* ===================================
+        RESPONSIVE DESIGN (HAMBURGER MODIFICATIONS)
+        =================================== */
+        @media (max-width: 768px) {
+            
+            /* --- MODIFIED: Mobile Nav Styling --- */
+            nav {
+                /* Start hidden */
+                display: none; 
+                
+                /* Make it a vertical overlay menu */
+                position: absolute;
+                top: 4rem; /* Height of the header */
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                
+                /* Styling */
+                background-color: hsl(var(--card));
+                padding: 1rem;
+                border-bottom: 1px solid hsl(var(--border));
+                box-shadow: var(--shadow-card);
+                
+                /* Animation */
+                animation: fadeInUp 0.2s ease-out;
+            }
+
+            /* --- NEW: Active state for mobile nav --- */
+            nav.mobile-active {
+                display: flex; /* Show the menu */
+            }
+            
+            /* --- NEW: Mobile nav link styling --- */
+            nav.mobile-active a {
+                padding: 1rem;
+                border-radius: var(--radius);
+                font-size: 1rem;
+                font-weight: 600;
+            }
+            nav.mobile-active a:hover {
+                background-color: hsl(var(--muted));
+            }
+
+            /* --- NEW: Show Hamburger Button (More Specific) --- */
+            .header-actions .hamburger-btn {
+                display: inline-flex; /* Use inline-flex to match btn-icon */
+            }
+
+            /* --- NEW: Hide desktop quote button --- */
+            .header-actions .btn-cta {
+                display: none;
+            }
+
+            /* --- EXISTING RULES --- */
+            .hero {
+                height: 500px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        
+        /* ===================================
+        UTILITIES
+        =================================== */
+        .text-center {
+            text-align: center;
+        }
+        
+        .w-full {
+            width: 100%;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        /* Icon positioning for light/dark mode */
+        .theme-toggle {
+            position: relative;
+        }
+        
+        .sun-icon, .moon-icon {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        [data-theme="dark"] .sun-icon {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0);
+        }
+        
+        [data-theme="dark"] .moon-icon {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+        
+        [data-theme="light"] .sun-icon {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+        
+        [data-theme="light"] .moon-icon {
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+    </style>
+
+    <script>
+        // --- FORM SUBMISSION CONFIGURATION ---
+        // FIX: Using the correct, specified URL.
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzwprGbg8-3rZsIOj_5XjiM5Dqoj3LdvN5Tu9PKG-2JxGFB1Ng3KwWJggxzVonPB_5J-w/exec'; 
+
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Check for saved theme
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+
+            // Handle anchor links for internal SPA navigation (About/Applications/Contact)
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                navigateTo(hash);
+            }
+            
+            // Setup the form handler now that the DOM is ready
+            setupContactFormHandler();
+
+            // --- NEW: HAMBURGER MENU SETUP ---
+            setupHamburgerMenu();
+        });
+        
+        // Theme Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // --- NEW: HAMBURGER TOGGLE FUNCTION ---
+        function setupHamburgerMenu() {
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const mainNav = document.getElementById('mainNav');
+
+            if (!hamburgerBtn || !mainNav || !hamburgerIcon) {
+                console.error('Hamburger menu elements not found!');
+                return;
+            }
+
+            // 1. Toggle menu on button click
+            hamburgerBtn.addEventListener('click', () => {
+                const isActive = mainNav.classList.toggle('mobile-active');
+                
+                // Change icon
+                if (isActive) {
+                    hamburgerIcon.setAttribute('data-lucide', 'x');
+                } else {
+                    hamburgerIcon.setAttribute('data-lucide', 'menu');
+                }
+                lucide.createIcons(); // Redraw the new icon
+            });
+
+            // 2. Close menu when a nav link is clicked (for SPA)
+            mainNav.addEventListener('click', (e) => {
+                // Check if the clicked element is a link
+                if (e.target.tagName === 'A') {
+                    // Check if it's an internal SPA link (has onclick)
+                    if (e.target.getAttribute('onclick')) {
+                        mainNav.classList.remove('mobile-active');
+                        hamburgerIcon.setAttribute('data-lucide', 'menu');
+                        lucide.createIcons();
+                    }
+                    // If it's a normal href link (like products.html),
+                    // the page will reload anyway, so we don't need to do anything.
+                }
+            });
+        }
+        
+        // Navigation for the sections on this page (SPA logic)
+        function navigateTo(page) {
+            // --- MODIFIED: Close mobile menu on navigation ---
+            const mainNav = document.getElementById('mainNav');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            if (mainNav && mainNav.classList.contains('mobile-active')) {
+                mainNav.classList.remove('mobile-active');
+                if (hamburgerIcon) {
+                    hamburgerIcon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            }
+            // --- End of modification ---
+
+            // Hide all local pages
+            document.querySelectorAll('.page').forEach(p => {
+                p.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(page);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            } else {
+                // Fallback to home if page not found
+                document.getElementById('home').classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Re-initialize icons
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        }
+        
+        // --- APPS SCRIPT FORM SUBMISSION LOGIC (FIXED) ---
+        function setupContactFormHandler() {
+            const form = document.getElementById('contactForm');
+            if (!form) return; 
+
+            // Ensure these elements exist in the HTML structure
+            const statusMessage = document.getElementById('formStatusMessage'); 
+            const submitButton = document.getElementById('submitButton');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                if (!statusMessage || !submitButton) {
+                    console.error("Form feedback elements not found. Check HTML IDs.");
+                    return;
+                }
+
+                // 1. Initial UI Feedback (Sending...)
+                statusMessage.textContent = 'Sending message...';
+                statusMessage.className = 'text-center font-semibold text-gray-500 mt-4';
+                submitButton.disabled = true;
+                // Note: The below line assumes the Lucide icons are correctly styled for animation
+                submitButton.innerHTML = '<i data-lucide="loader-circle" class="animate-spin w-4 h-4 mr-2"></i> Sending...';
+                lucide.createIcons(); 
+
+                // 2. Prepare Form Data (using URLSearchParams for Apps Script compatibility)
+                const formData = new FormData(form);
+                const data = new URLSearchParams();
+                for (const pair of formData) {
+                    data.append(pair[0], pair[1]);
+                }
+
+                // 3. Fetch Request
+                fetch(WEB_APP_URL, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(response => {
+                    // FIX: Apps Script returns plain text ("Success"), so we only check HTTP status (200).
+                    if (response.ok) {
+                        // Success path
+                        statusMessage.textContent = 'Message successfully sent! We will be in touch shortly.';
+                        statusMessage.className = 'text-center font-semibold text-green-500 mt-4';
+                        form.reset(); 
+                    } else {
+                        // Failure path (e.g., HTTP 404 or 500 from the script server)
+                        throw new Error('Server error: Apps Script URL failed to respond correctly.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Submission Error:', error);
+                    statusMessage.textContent = 'Failed to send message. Please check the Apps Script deployment or try again later.';
+                    statusMessage.className = 'text-center font-semibold text-red-500 mt-4';
+                })
+                .finally(() => {
+                    // 4. Final UI Reset
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Send Message <i data-lucide="send"></i>';
+                    lucide.createIcons(); 
+                });
+            });
+        }
+    </script>
+</head>
+<body data-theme="light">
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="logo.jpg" style="height:70px; width:auto; object-fit:contain; vertical-align:middle; padding:5px 0;" 
+                    alt="Vasantham fibreglass Industries" 
+                    class="logo" 
+                    onclick="navigateTo('home')">
+                
+                <nav id="mainNav">
+                    <a onclick="navigateTo('home')">Home</a>
+                    <a href="products.html">Products</a>
+                    <a onclick="navigateTo('applications')">Applications</a>
+                    <a onclick="navigateTo('about')">About Us</a>
+                    <a onclick="navigateTo('contact')">Contact</a>
+                </nav>
+                
+                <div class="header-actions">
+                    <button class="btn-icon theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                        <i data-lucide="sun" class="sun-icon"></i>
+                        <i data-lucide="moon" class="moon-icon"></i>
+                    </button>
+                    <button class="btn btn-cta" onclick="navigateTo('contact')">Request a Quote</button>
+                    
+                    <button class="btn-icon hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">
+                        <i data-lucide="menu" id="hamburger-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Focusing on Dedication and Future</h1>
+                    <p>Committed to producing high-quality FRP products with dedication and precision for a growing future</p>
+                    <div class="hero-buttons">
+                        <a href="products.html" class="btn btn-primary" style="color: white; text-decoration: none;">
+                            Explore Products
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                        <button class="btn btn-outline" onclick="navigateTo('contact')">Request Quote</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section-bg">
+                <div class="container">
+                    <div class="grid grid-4">
+                        <div class="card feature-card animate-fade-in-up">
+                            <div class="card-header">
+                                <i data-lucide="shield" class="feature-icon"></i>
+                                <h3 class="card-title">Deadline Certainty</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Product Delivery Guaranteed Within the Agreed Timeline</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card feature-card animate-fade-in-up">
+                            <div class="card-header">
+                                <i data-lucide="zap" class="feature-icon orange"></i>
+                                <h3 class="card-title">Fast Delivery</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Guarantees that production targets will be met without delay</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card feature-card animate-fade-in-up">
+                            <div class="card-header">
+                                <i data-lucide="award" class="feature-icon"></i>
+                                <h3 class="card-title">Expert Team</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">20+ years of experience in FRP manufacturing</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card feature-card animate-fade-in-up">
+                            <div class="card-header">
+                                <i data-lucide="check-circle-2" class="feature-icon orange"></i>
+                                <h3 class="card-title">Custom Solutions</h3>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-description">Tailored products to meet your specific requirements</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="container">
+                    <div class="section-header animate-fade-in-up">
+                        <h2>Featured Products</h2>
+                        <p>Explore our comprehensive range of FRP solutions</p>
+                    </div>
+                    
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="card-image-wrapper gradient-primary">
+                                <img class="card-image" onerror="this.onerror=null; this.src='https://placehold.co/400x256/224068/ffffff?text=FRP+Doors';" src="arch big.jpg" alt="FRP Doors Image">
+                            </div>
+                            <div class="card-header">
+                                <h3 class="card-title">FRP Doors</h3>
+                                <p class="card-description">Durable and aesthetically pleasing entrance solutions</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="products.html" class="btn btn-cta w-full">View Collection</a>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-image-wrapper gradient-accent">
+                                <img class="card-image" onerror="this.onerror=null; this.src='https://placehold.co/400x256/205b7a/ffffff?text=FRP+Dustbins';" src="rabbit 1.jpg" alt="FRP Dustbins Image">
+                            </div>
+                            <div class="card-header">
+                                <h3 class="card-title">FRP Dustbins</h3>
+                                <p class="card-description">Durable waste management solutions</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="products.html" class="btn btn-cta w-full">View Collection</a>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-image-wrapper gradient-secondary">
+                                <img class="card-image" onerror="this.onerror=null; this.src='https://placehold.co/400x256/404040/ffffff?text=FRP+Park+Items';" src="circular swing.jpg" alt="FRP Park Items Image">
+                            </div>
+                            <div class="card-header">
+                                <h3 class="card-title">FRP Park Items</h3>
+                                <p class="card-description">Stylish and durable outdoor furniture</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="products.html" class="btn btn-cta w-full">View Collection</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section-bg">
+                <div class="container">
+                    <div class="grid grid-2 items-center">
+                        <div class="animate-fade-in-up">
+                            <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem;">About Vasantham fibreglass Industries</h2>
+                            <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-bottom: 1rem;">
+                                With 20 years of excellence in fibre and FRP manufacturing, we have established ourselves as a trusted team in the field .
+                            </p>
+                            <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">
+                                Our commitment to quality, fast delivery, and innovative custom solutions makes us the ideal partner for your durable composite needs across various sectors, including construction, public works, and recreation.
+                            </p>
+                            <button class="btn btn-primary" onclick="navigateTo('about')">Learn More About Us</button>
+                        </div>
+                        <div class="card gradient-primary" style="height: 24rem; display: flex; align-items: center; justify-content: center; color: white;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 4rem; font-weight: 700; margin-bottom: 1rem;">20+</div>
+                                <div style="font-size: 1.5rem;">Years of Excellence</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Get in Touch</h2>
+                        <p>Ready to start your project? Contact us today</p>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="card p-8 text-center animate-fade-in-up">
+                            <i data-lucide="send" class="feature-icon" style="color: hsl(var(--primary));"></i>
+                            <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Start Your Custom Project</h3>
+                            <p class="card-description" style="font-size: 1rem; margin-bottom: 1.5rem;">Fill out our detailed form to request a custom quote and begin the fabrication process.</p>
+                            <button class="btn btn-primary" onclick="navigateTo('contact')" style="width: 100%;">Contact Our Experts</button>
+                        </div>
+                        
+                        <div class="card p-8 text-center animate-fade-in-up">
+                            <i data-lucide="map-pin" class="feature-icon" style="color: hsl(var(--accent));"></i>
+                            <h3 class="card-title" style="font-size: 1.5rem; margin-bottom: 1rem;">Visit Our Factory</h3>
+                            <p class="card-description" style="font-size: 1rem; margin-bottom: 1.5rem;">View our full address and location map on the dedicated contact page.</p>
+                            <button class="btn btn-outline" onclick="navigateTo('contact')" style="width: 100%;">View Location Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div id="applications" class="page">
+            <section style="padding-top: 3rem;">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Applications</h2>
+                        <p>FRP solutions across diverse industries</p>
+                    </div>
+                    
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <i data-lucide="building" class="feature-icon"></i>
+                                <h3 class="card-title">Construction</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Architectural elements, doors, panels, and structural components for modern buildings.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i data-lucide="factory" class="feature-icon orange"></i>
+                                <h3 class="card-title">Industrial</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Chemical resistant components, tanks, piping, and equipment for industrial facilities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i data-lucide="tree-deciduous" class="feature-icon"></i>
+                                <h3 class="card-title">Public Spaces</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Park furniture, benches, dustbins, and outdoor amenities for public areas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i data-lucide="truck" class="feature-icon orange"></i>
+                                <h3 class="card-title">Transportation</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Lightweight, durable components for automotive and transportation industries.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i data-lucide="droplet" class="feature-icon"></i>
+                                <h3 class="card-title">Water Treatment</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Corrosion-resistant tanks, pipes, and systems for water treatment facilities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <i data-lucide="recycle" class="feature-icon orange"></i>
+                                <h3 class="card-title">Waste Management</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Durable dustbins and containers for efficient waste management systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div id="about" class="page">
+            <section style="padding-top: 3rem;">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>About Us</h2>
+                        <p>Leading the way in fibreglass manufacturing</p>
+                    </div>
+                    
+                    <div class="card" style="margin-bottom: 3rem; padding: 2rem;">
+                        <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Our Story</h3>
+                        <p style="font-size: 1.125rem; margin-bottom: 1rem; line-height: 1.8;">
+                            Founded over 20 years ago, Vasantham Fibreglass Industries has grown from a small workshop to 
+                            a leading manufacturer of high-quality **FRP products**. Our journey has been marked by continuous 
+                            innovation, unwavering commitment to quality, and dedication to customer satisfaction.
+                        </p>
+                        <p style="font-size: 1.125rem; line-height: 1.8;">
+                            Today, we serve clients across various industries, providing custom FRP solutions that meet the 
+                            most demanding specifications. Our state-of-the-art manufacturing facility and experienced team 
+                            enable us to deliver products that combine durability, functionality, and aesthetic appeal.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-4" style="margin-bottom: 3rem;">
+                        <div class="card text-center">
+                            <div class="card-content" style="padding: 2rem;">
+                                <div style="font-size: 3rem; font-weight: 700; color: hsl(var(--accent)); margin-bottom: 0.5rem;">20+</div>
+                                <div style="font-weight: 600;">Years Experience</div>
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-content" style="padding: 2rem;">
+                                <div style="font-size: 3rem; font-weight: 700; color: hsl(var(--orange)); margin-bottom: 0.5rem;">20+</div>
+                                <div style="font-weight: 600;">Projects Completed</div>
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-content" style="padding: 2rem;">
+                                <div style="font-size: 3rem; font-weight: 700; color: hsl(var(--accent)); margin-bottom: 0.5rem;">10+</div>
+                                <div style="font-weight: 600;">Expert Team Members</div>
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-content" style="padding: 2rem;">
+                                <div style="font-size: 3rem; font-weight: 700; color: hsl(var(--orange)); margin-bottom: 0.5rem;">100%</div>
+                                <div style="font-weight: 600;">Quality Assured</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Our Mission</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>To deliver innovative, high-quality FRP products that enhance our clients' projects while maintaining the highest standards of safety, sustainability, and customer service.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Our Vision</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>To be the most trusted and innovative FRP manufacturing, setting new standards for quality, reliability, and customer satisfaction.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Our Values</h3>
+                            </div>
+                            <div class="card-content">
+                                <p>Quality, Innovation, Integrity, Customer Focus, and Environmental Responsibility guide everything we do at Vasantham Fibreglass Industries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <div id="contact" class="page">
+            <section style="padding-top: 3rem;">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Contact Us</h2>
+                        <p>Get in touch with our team</p>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Send us a message</h3>
+                            </div>
+                            <div class="card-content">
+                                <form id="contactForm"> 
+                                    <div class="form-group">
+                                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea id="message" name="message" placeholder="Your Message" rows="6" required></textarea>
+                                    </div>
+                                    
+                                    <div id="formStatusMessage" class="text-center font-semibold h-6 my-4"></div>
+                                    
+                                    <button type="submit" id="submitButton" class="btn btn-cta w-full">
+                                        Send Message <i data-lucide="send"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="card" style="margin-bottom: 1.5rem;">
+                                <div class="card-header">
+                                    <h3 class="card-title">Contact Information</h3>
+                                </div>
+                                <div class="card-content">
+                                    <div class="flex items-center gap-2" style="margin-bottom: 1.5rem;">
+                                        <i data-lucide="phone" style="width: 1.25rem; height: 1.25rem; color: hsl(var(--accent));"></i>
+                                        <div>
+                                            <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Phone</h4>
+                                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">+91 9894171858</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2" style="margin-bottom: 1.5rem;">
+                                        <i data-lucide="mail" style="width: 1.25rem; height: 1.25rem; color: hsl(var(--accent));"></i>
+                                        <div>
+                                            <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Email</h4>
+                                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">vasanthamfiberglassindustries@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="map-pin" style="width: 1.25rem; height: 1.25rem; color: hsl(var(--accent));"></i>
+                                        <div>
+                                            <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Address</h4>
+                                            <p style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;"># 2/190, East Pondy Road, Kamban Nagar, Villupuram 605 602<br>Tamil Nadu, India</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div style="height: 24rem; background-color: hsl(var(--muted)); display: flex; align-items: center; justify-content: center; border-radius: var(--radius);">
+                                    <iframe
+                                        title="Map location"
+                                        width="100%"
+                                        height="100%"
+                                        style="border:0"
+                                        loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
+                                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3903.5581760086834!2d79.52366669999999!3d11.9358056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDU2JzA4LjkiTiA3OcKwMzEnMjUuMiJF!5e0!3m2!1sen!2sin!4v1762927855144!5m2!1sen!2sin">
+                                    </iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Vasantham Fibreglass</h3>
+                    <p style="font-size: 0.875rem; color: hsl(var(--muted-foreground)); margin-top: 0.5rem;">
+                        Leading manufacturer of high-quality fibreglass and composite products.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('home'); return false;">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#" onclick="navigateTo('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="navigateTo('contact'); return false;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">FRP Doors</a></li>
+                        <li><a href="products.html">FRP Dustbins</a></li>
+                        <li><a href="products.html">FRP Park Items</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4>Contact Info</h4>
+                    <ul style="list-style: none;">
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-lucide="phone" style="width: 1rem; height: 1rem; margin-top: 0.125rem;"></i>
+                            <span>+91 9894171858</span>
+                        </li>
+                        <li style="display: flex; gap: 0.5rem; margin-bottom: 0.75rem;">
+                            <i data-lucide="mail" style="width: 1rem; height: 1rem; margin-top: 0.125rem;"></i>
+                            <span>vasanthamfiberglassindustries@gmail.com</span>
+                        </li>
+                        <li style="display: flex; gap: 0.5rem;">
+                            <i data-lucide="map-pin" style="width: 1rem; height: 1rem; margin-top: 0.125rem;"></i>
+                            <span>East Pondy Road, Kamban Nagar, Villupuram 605 602</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-copyright">
+                © <span id="year">2024</span> Vasantham Fibreglass Industries. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+<script src="script.js"></script>
+<script src="setupContactFormHandler.js"></script>
+</body>
+
+</html>
